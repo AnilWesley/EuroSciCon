@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_10"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTitle"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:text="dakfhguiadfghu"
+        android:textSize="16sp"
+        android:layout_toStartOf="@+id/txtPrice"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSubTitle"
+        android:fontFamily="@font/proxima_nova_regular"
+        android:text="dakfhguiadfghu"
+        android:textSize="12sp"
+        android:layout_below="@+id/txtTitle"
+        android:layout_toStartOf="@+id/txtPrice"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPrice"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:text="200"
+        android:layout_centerInParent="true"
+        android:textSize="18sp"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

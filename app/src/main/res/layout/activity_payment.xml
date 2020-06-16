@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F989595"
+    tools:context=".activity.PaymentActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottamLayout">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:text="@string/choose_your_currency"
+                            android:textColor="@color/black" />
+
+
+                        <RadioGroup
+                            android:id="@+id/currency_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="@dimen/padding_10"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+
+                            <RadioButton
+                                android:id="@+id/radio0"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:checked="true"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="GBP (£)"
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                            <RadioButton
+                                android:id="@+id/radio1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="Euro (€) "
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                            <RadioButton
+                                android:id="@+id/radio2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="USD ($)"
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:text="Choose Your Category"
+                            android:textColor="@color/black" />
+
+
+                        <RadioGroup
+                            android:id="@+id/category_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="@dimen/padding_10"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+
+                            <RadioButton
+                                android:id="@+id/radioAcadamic"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:checked="true"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="Academic"
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                            <RadioButton
+                                android:id="@+id/radioBusiness"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="Business"
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                            <RadioButton
+                                android:id="@+id/radioStudent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_flat_selector"
+                                android:button="@android:color/transparent"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:gravity="center"
+                                android:text="Student"
+                                android:textColor="@color/radio_flat_text_selector" />
+
+                        </RadioGroup>
+
+                        <include layout="@layout/item_main"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="5dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_Color"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/paymentRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#1DB3B1B1"
+                            android:nestedScrollingEnabled="true" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Young Research Forum"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/yrfRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#1DB3B1B1"
+                            android:nestedScrollingEnabled="true"
+                            android:layout_marginTop="0dp"/>
+                    </LinearLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardEposter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="E-Poster"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/ePosterRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#1DB3B1B1"
+                            android:nestedScrollingEnabled="true"
+                            android:layout_marginTop="0dp"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAddOn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardUseCompatPadding="true"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ADD-On Registrations"
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/addOnRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#1DB3B1B1"
+                            android:nestedScrollingEnabled="true"
+                            android:layout_marginTop="0dp"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottamLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/proxima_nova_regular"
+                android:text="@string/your_total_payment"/>
+
+            <TextView
+                android:id="@+id/txtTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/quantum_bluegrey800"
+                android:fontFamily="@font/proxima_nova_bold"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnProceed"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="Proceed"
+            android:layout_gravity="center"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@drawable/rounded_button"
+            tools:ignore="UnusedAttribute"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
