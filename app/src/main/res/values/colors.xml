@@ -5,9 +5,9 @@
     <color name="colorPrimary">#071142</color>
     <color name="colorAccent">#125688</color>-->
 
-    <color name="colorPrimary">#2D3436</color>
-    <color name="colorPrimaryDark">#000</color>
-    <color name="colorAccent">#000</color>
+    <color name="colorPrimary">#7a711e</color>
+    <color name="colorPrimaryDark">#514b1b</color>
+    <color name="colorAccent">#D3B359</color>
     <color name="black">#000000</color>
     <color name="colorGray">#5cd5d5d5</color>
 
