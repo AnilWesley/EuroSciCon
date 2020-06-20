@@ -340,7 +340,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         if (item.getItemId() == android.R.id.home) {
             Intent intent = new Intent(DashBoardActivity.this, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -350,7 +350,7 @@ public class DashBoardActivity extends AppCompatActivity {
     public void onBackPressed() {
         /*super.onBackPressed();*/
         Intent intent = new Intent(DashBoardActivity.this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
     }

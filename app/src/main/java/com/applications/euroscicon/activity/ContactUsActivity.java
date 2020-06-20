@@ -57,14 +57,6 @@ public class ContactUsActivity extends AppCompatActivity {
     TextView txtMailasia;
     @BindView(R.id.txtDailasia)
     TextView txtDailasia;
-    @BindView(R.id.txtMailEast)
-    TextView txtMailEast;
-    @BindView(R.id.txtDailEast)
-    TextView txtDailEast;
-    @BindView(R.id.txtMailEurope)
-    TextView txtMailEurope;
-    @BindView(R.id.txtdailEurope)
-    TextView txtdailEurope;
     @BindView(R.id.progressBar)
     LinearLayout progressBar;
 
@@ -91,7 +83,7 @@ public class ContactUsActivity extends AppCompatActivity {
 
 
 
-    @OnClick({R.id.btnDownload, R.id.txtmailAmerica, R.id.txtDailAmerica, R.id.txtMailasia, R.id.txtDailasia, R.id.txtMailEast, R.id.txtDailEast, R.id.txtMailEurope, R.id.txtdailEurope})
+    @OnClick({R.id.btnDownload, R.id.txtmailAmerica, R.id.txtDailAmerica, R.id.txtMailasia, R.id.txtDailasia})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnDownload:
@@ -156,40 +148,7 @@ public class ContactUsActivity extends AppCompatActivity {
                 intent1.setData(Uri.parse(temp1));
                 startActivity(intent1);
                 break;
-            case R.id.txtMailEast:
-                Intent i2 = new Intent(Intent.ACTION_SEND);
-                i2.setType("message/rfc822");
-                i2.putExtra(Intent.EXTRA_EMAIL  , new String[]{txtMailEast.getText().toString()});
 
-                try {
-                    startActivity(Intent.createChooser(i2, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(ContactUsActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.txtDailEast:
-                Intent intent2 = new Intent(Intent.ACTION_DIAL);
-                String temp2 = "tel:" + txtDailEast.getText().toString();
-                intent2.setData(Uri.parse(temp2));
-                startActivity(intent2);
-                break;
-            case R.id.txtMailEurope:
-                Intent i3 = new Intent(Intent.ACTION_SEND);
-                i3.setType("message/rfc822");
-                i3.putExtra(Intent.EXTRA_EMAIL  , new String[]{txtMailEurope.getText().toString()});
-
-                try {
-                    startActivity(Intent.createChooser(i3, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(ContactUsActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.txtdailEurope:
-                Intent intent3 = new Intent(Intent.ACTION_DIAL);
-                String temp3 = "tel:" + txtdailEurope.getText().toString();
-                intent3.setData(Uri.parse(temp3));
-                startActivity(intent3);
-                break;
         }
     }
 

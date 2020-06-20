@@ -2,6 +2,7 @@ package com.applications.euroscicon.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class RegistrationsListAdapter extends RecyclerView.Adapter<Registrations
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.txtTitle.setText(categories.get(position).getTitle());
+        holder.txtTitle.setText(Html.fromHtml(categories.get(position).getTitle()));
         holder.txtOrderNo.setText("Order Id : "+categories.get(position).getOrder_no());
 
         holder.txtPrice.setText(categories.get(position).getCurrency()+" " +categories.get(position).getPrice());

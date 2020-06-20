@@ -1,5 +1,6 @@
 package com.applications.euroscicon.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,7 +16,7 @@ import com.applications.euroscicon.utils.MyAppPrefsManager;
 
 import java.util.Objects;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends Activity {
   public static int SPLASH_TIME_OUT = 3000;
   MyAppPrefsManager myAppPrefsManager;
     @Override
@@ -23,9 +24,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+       /* getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+*/
         myAppPrefsManager=new MyAppPrefsManager(this);
 
        new Handler().postDelayed(() -> {

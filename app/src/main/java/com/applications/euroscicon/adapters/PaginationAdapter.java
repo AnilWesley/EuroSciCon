@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.content.ContentValues.TAG;
 
 public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -140,16 +143,21 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 movieVH.articleTitle.setText(text);
 
                 String conf_type=result.getConf_type();
+                movieVH.articleCity.setText(result.getCity() + ", " + result.getCountry());
 
-                if (conf_type.equals("conference")) {
+                Log.d(TAG, "onBindViewHolder: "+result.getConf_type());
 
-                    movieVH.confType.setVisibility(View.GONE);
-                    movieVH.articleCity.setText(result.getCity() + ", " + result.getCountry());
-
-                } else  {
+                if (conf_type.equalsIgnoreCase("webinar")){
                     movieVH.articleCity.setVisibility(View.GONE);
+                    movieVH.confType.setVisibility(View.VISIBLE);
                     movieVH.confType.setText("Online Event");
+
+                }else {
+                    movieVH.confType.setVisibility(View.GONE);
+                    movieVH.articleCity.setVisibility(View.VISIBLE);
+
                 }
+
 
 
 

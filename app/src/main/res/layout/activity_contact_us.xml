@@ -41,7 +41,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_mail_24"
                     android:gravity="center_vertical"
-                    android:text="america@conferenceseries.com" />
+                    android:text="contact@euroscicon.com" />
 
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_call_24"
                     android:gravity="center_vertical"
-                    android:text="1-888-843-8169" />
+                    android:text="1-800-841-6480" />
 
 
             </LinearLayout>
@@ -78,7 +78,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Asia-Pacific"
+                    android:text="UK"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_mail_24"
                     android:gravity="center_vertical"
-                    android:text="asia@conferenceseries.com" />
+                    android:text="contact@euroscicon.com" />
 
 
                 <TextView
@@ -98,101 +98,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_call_24"
                     android:gravity="center_vertical"
-                    android:text="44-203-7690-972" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/padding_10"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_10"
-                android:background="@color/quantum_grey" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/padding_10"
-                android:paddingEnd="@dimen/padding_10">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Middle East"
-                    android:textColor="@color/colorPrimaryDark" />
-
-                <TextView
-                    android:id="@+id/txtMailEast"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:drawableEnd="@drawable/ic_baseline_mail_24"
-                    android:gravity="center_vertical"
-                    android:text="me@conferenceseries.com" />
-
-
-                <TextView
-                    android:id="@+id/txtDailEast"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:drawableEnd="@drawable/ic_baseline_call_24"
-                    android:gravity="center_vertical"
-                    android:text="1-201-380-5561" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/padding_10"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="@dimen/padding_10"
-                android:layout_marginBottom="@dimen/padding_10"
-                android:background="@color/quantum_grey" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/padding_10"
-                android:paddingEnd="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_10">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Europe"
-                    android:textColor="@color/colorPrimaryDark" />
-
-                <TextView
-                    android:id="@+id/txtMailEurope"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:drawableEnd="@drawable/ic_baseline_mail_24"
-                    android:gravity="center_vertical"
-                    android:text="europe@conferenceseries.com" />
-
-
-                <TextView
-                    android:id="@+id/txtdailEurope"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:drawableEnd="@drawable/ic_baseline_call_24"
-                    android:gravity="center_vertical"
-                    android:text="44-0-800-014-8923" />
+                    android:text="44-2033182512" />
 
             </LinearLayout>
 
