@@ -158,11 +158,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                 }
 
-
-
-
-
-
                 movieVH.articleType.setText(result.getSubject());
                 movieVH.articleDate.setText("" + date3);
 

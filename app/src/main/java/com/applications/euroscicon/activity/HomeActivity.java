@@ -28,6 +28,7 @@ import com.applications.euroscicon.R;
 import com.applications.euroscicon.adapters.PaginationAdapter;
 import com.applications.euroscicon.api.ApiInterface;
 import com.applications.euroscicon.api.RetrofitClient;
+import com.applications.euroscicon.firebase.ForceUpdateChecker;
 import com.applications.euroscicon.models.Events;
 import com.applications.euroscicon.utils.ConstantValues;
 import com.applications.euroscicon.utils.MyAppPrefsManager;
@@ -47,7 +48,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ForceUpdateChecker.OnUpdateNeededListener {
 
     private static final String TAG = "RESPONSE_DATA";
 
@@ -113,7 +114,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
+        ForceUpdateChecker.with(this).onUpdateNeeded(this).check();
         etSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -342,5 +343,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
+    @Override
+    public void onUpdateNeeded(final String updateUrl) {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("New version available")
+                .setMessage("Please, update app to new version to continue.")
+                .setPositiveButton("Update",
+                        (dialog12, which) ->
+                                redirectStore(updateUrl)).setNegativeButton("No, thanks",
+                        (dialog1, which) ->
+                                dialog1.dismiss()).create();
+        dialog.show();
+    }
+
+    private void redirectStore(String updateUrl) {
+        final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 
 }

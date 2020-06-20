@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "613713575900",
+    "firebase_url": "https://euroscicon-10b36.firebaseio.com",
+    "project_id": "euroscicon-10b36",
+    "storage_bucket": "euroscicon-10b36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613713575900:android:d8ea8a5a7618124a75d919",
+        "android_client_info": {
+          "package_name": "com.applications.euroscicon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613713575900-aaq1inkthas1h04n0a559ks23391nltq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOMVAm4357vmTB917yOk19q9qhXM-Y1oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613713575900-aaq1inkthas1h04n0a559ks23391nltq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

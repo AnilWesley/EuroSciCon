@@ -215,6 +215,9 @@ public class SubmitAbstractActivity extends AppCompatActivity {
                 } else if (trackName.equalsIgnoreCase("Select Track Name")) {
                     Toast.makeText(SubmitAbstractActivity.this, "Select Track Name", Toast.LENGTH_SHORT).show();
 
+                }else if (txtFileChosen.getText().toString().equalsIgnoreCase("No File Chosen")) {
+                    Toast.makeText(SubmitAbstractActivity.this, "Select File", Toast.LENGTH_SHORT).show();
+
                 } else {
                     submitAbstract();
                 }
