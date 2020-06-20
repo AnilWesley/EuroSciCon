@@ -313,8 +313,8 @@ public class DashBoardActivity extends AppCompatActivity {
                         } else {
 
                             location.setVisibility(View.GONE);
-
-                            confType.setText(modelList.get(0).getConf_type());
+                            confType.setText("Online Event");
+                            //confType.setText(modelList.get(0).getConf_type());
                         }
 
 

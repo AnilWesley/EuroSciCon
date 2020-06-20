@@ -37,17 +37,12 @@ import retrofit2.http.Part;
 
 public interface ApiInterface {
 
-    @Headers("Content-Type: application/json")
-    @POST("api/get/mobiledata")
-    Call<Events> processData(@Body JsonObject body);
+
 
     @Headers("Content-Type: application/json")
     @POST("api/get/mobiledata_all")
     Call<Events> processDataAll(@Body JsonObject body);
 
-    @Headers("Content-Type: application/json")
-    @POST("api/get/mobiledata_search")
-    Call<Events> processDataSearch(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")
     @POST("api/get/mobiledata_conference")
@@ -72,9 +67,6 @@ public interface ApiInterface {
     Call<PaymentRegistration> processDataSendConferencePaymentStatus(@Body JsonObject body);
 
 
-   /* @Headers("Content-Type: application/json")
-    @POST("api/conference/insert_abstract")
-    Call<PaymentRegistration> processDataSendAbstract(@Body JsonObject body);*/
 
     @Headers("Content-Type: application/json")
     @POST("api/conference/get_tracks")

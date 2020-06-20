@@ -136,17 +136,25 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                 String text = Html.fromHtml(result.getTitle()).toString();
 
+
                 movieVH.articleTitle.setText(text);
 
-                if (result.getConf_type().equalsIgnoreCase("conference")) {
-                    movieVH.articleCity.setText(result.getCity() + ", " + result.getCountry());
+                String conf_type=result.getConf_type();
+
+                if (conf_type.equals("conference")) {
+
                     movieVH.confType.setVisibility(View.GONE);
+                    movieVH.articleCity.setText(result.getCity() + ", " + result.getCountry());
 
-
-                } else {
+                } else  {
                     movieVH.articleCity.setVisibility(View.GONE);
-                    movieVH.confType.setText(result.getConf_type());
+                    movieVH.confType.setText("Online Event");
                 }
+
+
+
+
+
                 movieVH.articleType.setText(result.getSubject());
                 movieVH.articleDate.setText("" + date3);
 
