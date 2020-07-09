@@ -61,7 +61,7 @@ public class AbsrtactListAdapter extends RecyclerView.Adapter<AbsrtactListAdapte
 
         holder.txtTitle.setText(Html.fromHtml(categories.get(position).getTitle()));
         holder.txtTractName.setText(categories.get(position).getTrack_name());
-        holder.txtConfType.setText( categories.get(position).getConf_type());
+        holder.txtConfType.setText( categories.get(position).getConf_type()+" ( "+ categories.get(position).getDate_of_submission()+" ) ");
 
 
     }

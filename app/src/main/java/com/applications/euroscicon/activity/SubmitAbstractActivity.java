@@ -3,6 +3,7 @@ package com.applications.euroscicon.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,6 +39,7 @@ import com.applications.euroscicon.models.SubmitAbstract;
 import com.applications.euroscicon.models.Template;
 import com.applications.euroscicon.models.TrackName;
 import com.applications.euroscicon.utils.MyAppPrefsManager;
+import com.applications.euroscicon.utils.ProgressRequestBody;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.JsonObject;
 import com.karumi.dexter.Dexter;
@@ -72,7 +74,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SubmitAbstractActivity extends AppCompatActivity {
+public class SubmitAbstractActivity extends AppCompatActivity implements ProgressRequestBody.UploadCallbacks{
 
     @BindView(R.id.spinnerTitle)
     Spinner spinnerTitle;
@@ -122,11 +124,11 @@ public class SubmitAbstractActivity extends AppCompatActivity {
     @BindView(R.id.downloadTemplate)
     TextView downloadTemplate;
     MyAppPrefsManager myAppPrefsManager;
-    @BindView(R.id.progressBar)
-    LinearLayout progressBar;
+
 
     String app_user_id;
 
+    ProgressDialog pDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +137,7 @@ public class SubmitAbstractActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Submit Abstract");
 
+        pDialog=new ProgressDialog(SubmitAbstractActivity.this);
 
         if (getIntent() != null) {
             Intent intent = getIntent();
@@ -360,7 +363,8 @@ public class SubmitAbstractActivity extends AppCompatActivity {
 
     public void submitAbstract() {
 
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
+        showProgress("Uploading File ...");
         ApiInterface apiInterface = RetrofitClient.getClient(this).create(ApiInterface.class);
         //Create a file object using file path
         File file = new File(path);
@@ -377,6 +381,7 @@ public class SubmitAbstractActivity extends AppCompatActivity {
 
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+        ProgressRequestBody fileBody = new ProgressRequestBody(file, "*", SubmitAbstractActivity.this);
 
         MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("uploadfile", file.getName(), requestBody);
         RequestBody conf_id1 = RequestBody.create(MediaType.parse("text/plain"), conf_id);
@@ -407,17 +412,20 @@ public class SubmitAbstractActivity extends AppCompatActivity {
                     String title = "Abstract Submission";
                     String message = "Thank You for submission for Abstract. Please check your email to get the status of your Abstract.Please do check your junk or spam folder if it doesn't arrive in your inbox.";
                     displayAlert(title, message);
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
+                    hideProgress();
                 } else {
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
+                    hideProgress();
                     Toast.makeText(SubmitAbstractActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<SubmitAbstract> call, @NotNull Throwable t) {
-                Log.d(TAG, "onFailure: " + call.toString());
-                progressBar.setVisibility(View.GONE);
+                Log.d(TAG, "onFailure: " + t.getMessage());
+                //progressBar.setVisibility(View.GONE);
+                hideProgress();
 
             }
         });
@@ -425,6 +433,57 @@ public class SubmitAbstractActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onProgressUpdate(int percentage) {
+        // set current progress
+
+        updateProgress(percentage, "File Upload", "Please Wait.....");
+    }
+
+    @Override
+    public void onError() {
+        // do something on error
+        Toast.makeText(getApplicationContext(), "File Uploading Failed.", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFinish() {
+        // do something on upload finished,
+        // for example, start next uploading at a queue
+        hideProgress();
+    }
+
+    public void updateProgress(int val, String title, String msg) {
+        pDialog.setTitle(title);
+        pDialog.setMessage(msg);
+        pDialog.setProgress(val);
+    }
+
+    public void showProgress(String str) {
+        try {
+            pDialog.setCancelable(false);
+            pDialog.setTitle("Please wait");
+            pDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            pDialog.setMax(100); // Progress Dialog Max Value
+            pDialog.setMessage(str);
+            if (pDialog.isShowing())
+                pDialog.dismiss();
+            pDialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void hideProgress() {
+        try {
+            if (pDialog.isShowing())
+                pDialog.dismiss();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private void displayAlert(@NonNull String alertTitle, @Nullable String message) {
 
@@ -487,19 +546,29 @@ public class SubmitAbstractActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            // Get the Uri of the selected file
-            Uri uri = data.getData();
-            assert uri != null;
-            String uriString = uri.toString();
-            File myFile = new File(uriString);
 
-            path = getFilePathFromURI(SubmitAbstractActivity.this, uri);
-            String fileExt = MimeTypeMap.getFileExtensionFromUrl(uriString);
-            Log.d(TAG, "" + path);
-            Log.d(TAG, "" + fileExt);
-            txtFileChosen.setText(path);
+        if (requestCode == 1) {
+           /* if (resultCode == RESULT_OK) {
+                path = Objects.requireNonNull(data.getData()).getPath();
+                txtFileChosen.setText(path);
+            }*/
+
+            if (resultCode == RESULT_OK) {
+                // Get the Uri of the selected file
+                Uri uri = data.getData();
+                assert uri != null;
+                String uriString = uri.toString();
+                File myFile = new File(uriString);
+
+                path = getFilePathFromURI(SubmitAbstractActivity.this, uri);
+                String fileExt = MimeTypeMap.getFileExtensionFromUrl(uriString);
+                Log.d(TAG, "" + path);
+                Log.d(TAG, "" + fileExt);
+                txtFileChosen.setText(path);
+            }
         }
+
+        /**/
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -674,4 +743,6 @@ public class SubmitAbstractActivity extends AppCompatActivity {
         intent.putExtra("conf_type", conf_type);
         startActivity(intent);
     }
+
+
 }

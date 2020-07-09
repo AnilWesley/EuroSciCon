@@ -31,9 +31,9 @@ public class PersonalInfoActivity extends AppCompatActivity {
     private static final String TAG = "RESPONSE_DATA";
 
 
-    String id, userName, emailID, mobileNumber, country, countryId, backKey,actionTitle,shorttitle,conf_type;
+    String id, userName, emailID, mobileNumber, country, countryId, backKey, actionTitle, shorttitle, conf_type;
 
-    int  countryPos;
+    int countryPos;
     String userPrefix;
     @BindView(R.id.editFirst1)
     TextInputEditText editFirst;
@@ -54,6 +54,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
     CountryToPhonePrefix countryToPhonePrefix;
 
     MyAppPrefsManager myAppPrefsManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +63,9 @@ public class PersonalInfoActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Personal Information");
 
-        myAppPrefsManager=new MyAppPrefsManager(PersonalInfoActivity.this);
+        myAppPrefsManager = new MyAppPrefsManager(PersonalInfoActivity.this);
 
-        countryToPhonePrefix=new CountryToPhonePrefix();
+        countryToPhonePrefix = new CountryToPhonePrefix();
 
         ArrayList<CountryToPhonePrefix> list = (ArrayList<CountryToPhonePrefix>) countryToPhonePrefix.getAll();
         ArrayAdapter<CountryToPhonePrefix> adapter =
@@ -112,23 +113,18 @@ public class PersonalInfoActivity extends AppCompatActivity {
                 mobileNumber = Objects.requireNonNull(editPhone.getText()).toString().trim();
                 emailID = Objects.requireNonNull(editEmail.getText()).toString().trim();
 
-                if (userName.isEmpty()){
+                if (userName.isEmpty()) {
                     Toast.makeText(PersonalInfoActivity.this, "Enter Name", Toast.LENGTH_SHORT).show();
 
-                }
-                else if (emailID.isEmpty()) {
+                } else if (emailID.isEmpty()) {
                     Toast.makeText(PersonalInfoActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
 
-                } else if (mobileNumber.isEmpty()){
+                } else if (country.equalsIgnoreCase("Select Your Country")) {
+                    Toast.makeText(PersonalInfoActivity.this, "Select Your Country", Toast.LENGTH_SHORT).show();
+                } else if (mobileNumber.isEmpty()) {
                     Toast.makeText(PersonalInfoActivity.this, "Enter Mobile Number", Toast.LENGTH_SHORT).show();
 
-                }
-                else if (country.equalsIgnoreCase("Select Your Country")){
-                    Toast.makeText(PersonalInfoActivity.this, "Select Your Country", Toast.LENGTH_SHORT).show();
-
-                }
-
-                else {
+                } else {
 
                     Intent intent = new Intent(PersonalInfoActivity.this, PaymentActivity1.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -157,9 +153,6 @@ public class PersonalInfoActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -186,7 +179,6 @@ public class PersonalInfoActivity extends AppCompatActivity {
         intent.putExtra("conf_type", conf_type);
         startActivity(intent);
     }
-
 
 
 }
