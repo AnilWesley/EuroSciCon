@@ -74,7 +74,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserRegistrationActivity.this, UserLoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("id", id);
                 intent.putExtra("title", title);
                 intent.putExtra("category", category);
@@ -143,7 +143,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                         ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn();
                         if (category.equalsIgnoreCase("register")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, PersonalInfoActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -151,7 +151,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (category.equalsIgnoreCase("abstract")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, SubmitAbstractActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -159,7 +159,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (category.equalsIgnoreCase("brochure")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, BrochureDownloadActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -168,7 +168,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                         }
                         else if (category.equalsIgnoreCase("feedback")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, FeedBackActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -176,7 +176,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (category.equalsIgnoreCase("history")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, RegistrationsListActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
 
@@ -202,11 +202,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
         if (category.equalsIgnoreCase("history")){
             Intent intent = new Intent(UserRegistrationActivity.this, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }else {
-            Intent intent = new Intent(UserRegistrationActivity.this, DashBoardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Intent intent = new Intent(UserRegistrationActivity.this, UserLoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("id", id);
             intent.putExtra("title", title);
             intent.putExtra("category", category);
@@ -222,11 +222,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
         /*super.onBackPressed();*/
         if (category.equalsIgnoreCase("history")){
             Intent intent = new Intent(UserRegistrationActivity.this, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }else {
-            Intent intent = new Intent(UserRegistrationActivity.this, DashBoardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Intent intent = new Intent(UserRegistrationActivity.this, UserLoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("id", id);
             intent.putExtra("title", title);
             intent.putExtra("category", category);

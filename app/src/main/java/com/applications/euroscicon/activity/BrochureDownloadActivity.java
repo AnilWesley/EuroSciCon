@@ -160,8 +160,8 @@ public class BrochureDownloadActivity extends AppCompatActivity {
         } else if (company.isEmpty()) {
             Toast.makeText(BrochureDownloadActivity.this, "Enter Company", Toast.LENGTH_SHORT).show();
 
-        } else if (country.equalsIgnoreCase("Select Your Country")) {
-            Toast.makeText(BrochureDownloadActivity.this, "Select Your Country", Toast.LENGTH_SHORT).show();
+        } else if (country.equalsIgnoreCase("Select Country")) {
+            Toast.makeText(BrochureDownloadActivity.this, "Select Country", Toast.LENGTH_SHORT).show();
 
         } else if (email.isEmpty()) {
             Toast.makeText(BrochureDownloadActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
@@ -210,21 +210,28 @@ public class BrochureDownloadActivity extends AppCompatActivity {
                     if (brochureDownload.isStatus()) {
                         List<BrochureDownload.FileBean> fileBeans = brochureDownload.getFile();
 
-                        path = fileBeans.get(0).getBrochure_file();
+                        if (fileBeans.size() == 0) {
 
-                        Log.d(TAG, "onResponse: " + path);
-                        WebView webView = new WebView(getApplicationContext());
-                        webView.loadUrl(path);
-                        webView.setDownloadListener(new DownloadListener() {
-                            public void onDownloadStart(String url, String userAgent,
-                                                        String contentDisposition, String mimetype,
-                                                        long contentLength) {
-                                Intent i = new Intent(Intent.ACTION_VIEW);
-                                i.setData(Uri.parse(path));
-                                startActivity(i);
-                            }
-                        });
-                        progressBar.setVisibility(View.GONE);
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(BrochureDownloadActivity.this, "No Brochure Available", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            path = fileBeans.get(0).getBrochure_file();
+
+                            Log.d(TAG, "onResponse: " + path);
+                            WebView webView = new WebView(getApplicationContext());
+                            webView.loadUrl(path);
+                            webView.setDownloadListener(new DownloadListener() {
+                                public void onDownloadStart(String url, String userAgent,
+                                                            String contentDisposition, String mimetype,
+                                                            long contentLength) {
+                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                    i.setData(Uri.parse(path));
+                                    startActivity(i);
+                                }
+                            });
+                            progressBar.setVisibility(View.GONE);
+                        }
                     } else {
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(BrochureDownloadActivity.this, "Failed", Toast.LENGTH_SHORT).show();

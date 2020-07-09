@@ -192,7 +192,7 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 movieVH.parentLayout.setOnClickListener(view -> {
 
                     Intent intent = new Intent(context, DashBoardActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra("id", movieResults.get(position).getId());
                     intent.putExtra("title", movieVH.articleTitle.getText().toString());
                     intent.putExtra("shorttitle", movieResults.get(position).getShort_name());

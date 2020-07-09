@@ -72,7 +72,7 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserLoginActivity.this, UserRegistrationActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("category", category);
                 intent.putExtra("id", id);
                 intent.putExtra("title", title);
@@ -137,7 +137,7 @@ public class UserLoginActivity extends AppCompatActivity {
                         ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn();
                         if (category.equalsIgnoreCase("register")) {
                             Intent intent = new Intent(UserLoginActivity.this, PersonalInfoActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -145,7 +145,7 @@ public class UserLoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (category.equalsIgnoreCase("abstract")) {
                             Intent intent = new Intent(UserLoginActivity.this, SubmitAbstractActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -153,7 +153,7 @@ public class UserLoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (category.equalsIgnoreCase("brochure")) {
                             Intent intent = new Intent(UserLoginActivity.this, BrochureDownloadActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -161,7 +161,7 @@ public class UserLoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         }else if (category.equalsIgnoreCase("feedback")) {
                             Intent intent = new Intent(UserLoginActivity.this, FeedBackActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.putExtra("id", id);
                             intent.putExtra("title", title);
                             intent.putExtra("shorttitle", shorttitle);
@@ -170,7 +170,7 @@ public class UserLoginActivity extends AppCompatActivity {
                         }
                         else if (category.equalsIgnoreCase("history")) {
                             Intent intent = new Intent(UserLoginActivity.this, RegistrationsListActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
 
@@ -196,11 +196,11 @@ public class UserLoginActivity extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             if (category.equalsIgnoreCase("history")){
                 Intent intent = new Intent(UserLoginActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }else {
                 Intent intent = new Intent(UserLoginActivity.this, DashBoardActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("id", id);
                 intent.putExtra("title", title);
                 intent.putExtra("category", category);
@@ -217,11 +217,11 @@ public class UserLoginActivity extends AppCompatActivity {
         /*super.onBackPressed();*/
         if (category.equalsIgnoreCase("history")){
             Intent intent = new Intent(UserLoginActivity.this, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }else {
             Intent intent = new Intent(UserLoginActivity.this, DashBoardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("id", id);
             intent.putExtra("title", title);
             intent.putExtra("category", category);

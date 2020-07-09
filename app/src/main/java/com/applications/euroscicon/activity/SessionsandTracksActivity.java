@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,7 +21,6 @@ import com.applications.euroscicon.models.SubTrackNames;
 import com.applications.euroscicon.models.TrackNames;
 import com.applications.euroscicon.utils.ConstantManager;
 import com.google.gson.JsonObject;
-
 
 import org.jetbrains.annotations.NotNull;
 
@@ -37,7 +38,7 @@ import retrofit2.Response;
 public class SessionsandTracksActivity extends AppCompatActivity {
 
     String conf_id, TAG = "RESPONSE_DATA";
-    String actionTitle, shorttitle, conf_type,  description;
+    String actionTitle, shorttitle, conf_type, description;
 
 
     ArrayList<TrackNames> countryItems;
@@ -47,6 +48,8 @@ public class SessionsandTracksActivity extends AppCompatActivity {
     SessionsExpandableListAdapter countriesExpandableListAdapter;
     @BindView(R.id.sessionandTrackList)
     ExpandableListView sessionandTrackList;
+    @BindView(R.id.progressBar)
+    LinearLayout progressBar;
 
 
     @Override
@@ -77,7 +80,7 @@ public class SessionsandTracksActivity extends AppCompatActivity {
         childItems = new ArrayList<>();
 
 
-        //progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
         ApiInterface apiInterface = RetrofitClient.getClient(this).create(ApiInterface.class);
         JsonObject jsonObject = new JsonObject();
 
@@ -90,7 +93,7 @@ public class SessionsandTracksActivity extends AppCompatActivity {
 
 
                 if (response.isSuccessful()) {
-                    //progressBar.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
 
                     assert response.body() != null;
                     Log.d(TAG, "onResponse: " + response.body().isStatus());
@@ -123,7 +126,6 @@ public class SessionsandTracksActivity extends AppCompatActivity {
                             countryItems.add(countryItem);
 
 
-
                         }
 
 
@@ -140,7 +142,6 @@ public class SessionsandTracksActivity extends AppCompatActivity {
                             mapParent.put(ConstantManager.Parameter.COUNTRY_ID, data.getCountryId());
                             mapParent.put(ConstantManager.Parameter.COUNTRY_NAME, data.getCountryName());
                             mapParent.put(ConstantManager.Parameter.COUNTRY_DESCRIPTION, description);
-
 
 
                             for (SubTrackNames cityItem : data.getSubCity()) {
@@ -169,6 +170,7 @@ public class SessionsandTracksActivity extends AppCompatActivity {
                         countriesExpandableListAdapter = new SessionsExpandableListAdapter(SessionsandTracksActivity.this, parentItems, childItems);
                         sessionandTrackList.setAdapter(countriesExpandableListAdapter);
                     } else {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(SessionsandTracksActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -177,7 +179,7 @@ public class SessionsandTracksActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NotNull Call<Sessions> call, @NotNull Throwable t) {
                 t.printStackTrace();
-                //progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
             }
         });
 

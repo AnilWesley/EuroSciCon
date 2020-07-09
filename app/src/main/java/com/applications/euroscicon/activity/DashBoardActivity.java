@@ -123,7 +123,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 if (ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn()) {
                     Intent intent = new Intent(DashBoardActivity.this, PersonalInfoActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -132,7 +132,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 } else {
                     Intent intent = new Intent(DashBoardActivity.this, UserLoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -148,7 +148,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 if (ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn()) {
                     Intent intent = new Intent(DashBoardActivity.this, SubmitAbstractActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -158,7 +158,7 @@ public class DashBoardActivity extends AppCompatActivity {
                 } else {
 
                     Intent intent = new Intent(DashBoardActivity.this, UserLoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -172,7 +172,7 @@ public class DashBoardActivity extends AppCompatActivity {
             case R.id.linearBrochureDownload:
                 if (ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn()) {
                     Intent intent = new Intent(DashBoardActivity.this, BrochureDownloadActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -181,7 +181,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 } else {
                     Intent intent = new Intent(DashBoardActivity.this, UserLoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -194,7 +194,7 @@ public class DashBoardActivity extends AppCompatActivity {
             case R.id.linearFeedback:
                 if (ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn()) {
                     Intent intent = new Intent(DashBoardActivity.this, FeedBackActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -203,7 +203,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 } else {
                     Intent intent = new Intent(DashBoardActivity.this, UserLoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("id", id);
                     intent.putExtra("title", title1);
                     intent.putExtra("shorttitle", shorttitle);
@@ -215,7 +215,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
             case R.id.linearSessionsTracks:
                 Intent intent = new Intent(DashBoardActivity.this, SessionsandTracksActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("id", id);
                 intent.putExtra("title", title1);
                 intent.putExtra("shorttitle", shorttitle);
@@ -346,7 +346,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         if (item.getItemId() == android.R.id.home) {
             Intent intent = new Intent(DashBoardActivity.this, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -356,7 +356,7 @@ public class DashBoardActivity extends AppCompatActivity {
     public void onBackPressed() {
         /*super.onBackPressed();*/
         Intent intent = new Intent(DashBoardActivity.this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         startActivity(intent);
     }
