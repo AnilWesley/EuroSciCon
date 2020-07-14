@@ -13,6 +13,7 @@ import com.applications.euroscicon.models.PaymentStripe;
 import com.applications.euroscicon.models.RegistrationsListResponse;
 import com.applications.euroscicon.models.Sessions;
 import com.applications.euroscicon.models.SubmitAbstract;
+import com.applications.euroscicon.models.SubmitAudioVideo;
 import com.applications.euroscicon.models.Template;
 import com.applications.euroscicon.models.TrackName;
 import com.applications.euroscicon.models.UserCreation;
@@ -103,6 +104,22 @@ public interface ApiInterface {
             @Part("app_user_id") RequestBody app_user_id,
             @Part("source") RequestBody source);
 
+
+
+    @Multipart
+    @POST("api/conference/audio_video_submission")
+    Call<SubmitAudioVideo> processDataSendAudioVideo(
+            @Part MultipartBody.Part file,
+            @Part("conf_id") RequestBody conf_id,
+            @Part("title") RequestBody title,
+            @Part("name") RequestBody name,
+            @Part("country") RequestBody country,
+            @Part("email") RequestBody email,
+            @Part("phone") RequestBody phone,
+            @Part("address") RequestBody address,
+            @Part("date") RequestBody date,
+            @Part("app_user_id") RequestBody app_user_id,
+            @Part("source") RequestBody source);
 
 
 

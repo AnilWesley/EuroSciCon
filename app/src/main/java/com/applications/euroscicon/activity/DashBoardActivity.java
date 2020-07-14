@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.applications.euroscicon.R;
 import com.applications.euroscicon.adapters.BannerAdapter;
 import com.applications.euroscicon.api.ApiInterface;
@@ -56,7 +55,6 @@ public class DashBoardActivity extends AppCompatActivity {
     TextView confType;
 
 
-
     private static final String TAG = "RESPONSE_DATA";
     @BindView(R.id.main_container)
     LinearLayout mainContainer;
@@ -85,6 +83,8 @@ public class DashBoardActivity extends AppCompatActivity {
     LinearLayout linearFeedback;
 
     MyAppPrefsManager myAppPrefsManager;
+    @BindView(R.id.linearPresentation)
+    LinearLayout linearPresentation;
 
 
     @Override
@@ -95,9 +95,6 @@ public class DashBoardActivity extends AppCompatActivity {
 
         myAppPrefsManager = new MyAppPrefsManager(DashBoardActivity.this);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-
-
 
 
         if (getIntent() != null) {
@@ -116,7 +113,7 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.linearRegister, R.id.linearSubmitAbstract, R.id.linearBrochureDownload, R.id.linearFeedback, R.id.linearSessionsTracks})
+    @OnClick({R.id.linearRegister, R.id.linearSubmitAbstract, R.id.linearBrochureDownload, R.id.linearFeedback, R.id.linearSessionsTracks,R.id.linearPresentation})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.linearRegister:
@@ -223,6 +220,31 @@ public class DashBoardActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
 
+            case R.id.linearPresentation:
+
+
+                if (ConstantValues.IS_USER_LOGGED_IN = myAppPrefsManager.isUserLoggedIn()) {
+                    Intent intentp = new Intent(DashBoardActivity.this, SubmitPresentationActivity.class);
+                    intentp.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intentp.putExtra("id", id);
+                    intentp.putExtra("title", title1);
+                    intentp.putExtra("shorttitle", shorttitle);
+                    intentp.putExtra("conf_type", conf_type);
+                    startActivity(intentp);
+
+
+                } else {
+                    Intent intentp = new Intent(DashBoardActivity.this, UserLoginActivity.class);
+                    intentp.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intentp.putExtra("id", id);
+                    intentp.putExtra("title", title1);
+                    intentp.putExtra("shorttitle", shorttitle);
+                    intentp.putExtra("conf_type", conf_type);
+                    intentp.putExtra("category", "presentation");
+                    startActivity(intentp);
+                }
+                break;
+
         }
     }
 
@@ -294,11 +316,11 @@ public class DashBoardActivity extends AppCompatActivity {
                         String month2 = "" + data2[0];
                         String date_2 = "" + data2[1];
                         String[] data3 = date_2.split(", ", 2);
-                        String date_3=""+data3[0];
+                        String date_3 = "" + data3[0];
 
                         String date3;
                         if (date_1.equalsIgnoreCase(date_3)) {
-                            date3=date2;
+                            date3 = date2;
                         } else if (month1.equalsIgnoreCase(month2)) {
                             date2 = date2.replace(month2, "");
                             date3 = date1 + " -" + date2;

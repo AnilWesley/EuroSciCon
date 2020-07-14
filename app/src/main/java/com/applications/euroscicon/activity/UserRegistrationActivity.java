@@ -174,7 +174,15 @@ public class UserRegistrationActivity extends AppCompatActivity {
                             intent.putExtra("shorttitle", shorttitle);
                             intent.putExtra("conf_type", conf_type);
                             startActivity(intent);
-                        } else if (category.equalsIgnoreCase("history")) {
+                        }  else if (category.equalsIgnoreCase("presentation")) {
+                            Intent intent = new Intent(UserRegistrationActivity.this, SubmitPresentationActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.putExtra("id", id);
+                            intent.putExtra("title", title);
+                            intent.putExtra("shorttitle", shorttitle);
+                            intent.putExtra("conf_type", conf_type);
+                            startActivity(intent);
+                        }else if (category.equalsIgnoreCase("history")) {
                             Intent intent = new Intent(UserRegistrationActivity.this, RegistrationsListActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
