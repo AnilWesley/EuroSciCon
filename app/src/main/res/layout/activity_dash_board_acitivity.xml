@@ -217,14 +217,15 @@
                                 android:src="@drawable/ic_arrow_downward_black_24dp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/proxima_nova_regular"
-                                android:minLines="2"
                                 android:text="@string/download_brochure"
                                 android:textSize="10sp"
+                                android:gravity="center"
+                                android:minLines="2"
                                 android:textColor="@color/black"/>
 
                         </LinearLayout>
