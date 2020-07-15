@@ -225,7 +225,6 @@
                                 android:text="@string/download_brochure"
                                 android:textSize="10sp"
                                 android:gravity="center"
-                                android:minLines="2"
                                 android:textColor="@color/black"/>
 
                         </LinearLayout>

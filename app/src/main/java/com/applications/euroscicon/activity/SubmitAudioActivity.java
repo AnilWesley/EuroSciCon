@@ -255,10 +255,11 @@ public class SubmitAudioActivity extends AppCompatActivity implements ProgressRe
         RequestBody address1 = RequestBody.create(MediaType.parse("text/plain"), address);
         RequestBody date1 = RequestBody.create(MediaType.parse("text/plain"), date);
         RequestBody app_user_id1 = RequestBody.create(MediaType.parse("text/plain"), app_user_id);
+        RequestBody type1 = RequestBody.create(MediaType.parse("text/plain"), "audio");
         RequestBody source1 = RequestBody.create(MediaType.parse("text/plain"), "android");
 
         Call<SubmitAudioVideo> call = apiInterface.processDataSendAudioVideo(fileToUpload, conf_id1, title1, name1, country1, email1,
-                phone1, address1, date1, app_user_id1, source1);
+                phone1, address1, date1, app_user_id1, type1,source1);
 
         call.enqueue(new Callback<SubmitAudioVideo>() {
             @Override
