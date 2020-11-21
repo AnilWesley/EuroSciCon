@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
 
             <LinearLayout
@@ -25,7 +26,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingStart="@dimen/padding_10"
-                android:paddingEnd="@dimen/padding_10">
+                android:paddingEnd="@dimen/padding_10"
+                android:visibility="gone">
 
 
                 <TextView
@@ -63,7 +65,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/padding_10"
                 android:layout_marginBottom="@dimen/padding_10"
-                android:background="@color/quantum_grey" />
+                android:background="@color/quantum_grey"
+                android:visibility="gone"/>
 
 
             <LinearLayout
@@ -72,7 +75,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingStart="@dimen/padding_10"
-                android:paddingEnd="@dimen/padding_10">
+                android:paddingEnd="@dimen/padding_10"
+                android:visibility="gone">
 
 
                 <TextView
@@ -99,6 +103,43 @@
                     android:drawableEnd="@drawable/ic_baseline_call_24"
                     android:gravity="center_vertical"
                     android:text="44-2033182512" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/padding_10"
+                android:paddingEnd="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_10">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="35 Ruddlesway, Windsor, Berkshire, SL4 5SF"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/txtMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableEnd="@drawable/ic_baseline_mail_24"
+                    android:gravity="center_vertical"
+                    android:text="contact@euroscicon.com"/>
+
+
+                <TextView
+                    android:id="@+id/txtdail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableEnd="@drawable/ic_baseline_call_24"
+                    android:gravity="center_vertical"
+                    android:text="0044-7469919014" />
 
             </LinearLayout>
 

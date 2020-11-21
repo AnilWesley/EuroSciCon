@@ -57,11 +57,15 @@ public class ContactUsActivity extends AppCompatActivity {
     TextView txtMailasia;
     @BindView(R.id.txtDailasia)
     TextView txtDailasia;
+    @BindView(R.id.txtMail)
+    TextView txtMail;
+    @BindView(R.id.txtdail)
+    TextView txtdail;
     @BindView(R.id.progressBar)
     LinearLayout progressBar;
 
-    String firstName,email,phone,quires;
-    String TAG="RESPONSE_DATA";
+    String firstName, email, phone, quires;
+    String TAG = "RESPONSE_DATA";
     String date;
 
     @Override
@@ -82,8 +86,7 @@ public class ContactUsActivity extends AppCompatActivity {
     }
 
 
-
-    @OnClick({R.id.btnDownload, R.id.txtmailAmerica, R.id.txtDailAmerica, R.id.txtMailasia, R.id.txtDailasia})
+    @OnClick({R.id.btnDownload, R.id.txtmailAmerica, R.id.txtDailAmerica, R.id.txtMailasia, R.id.txtDailasia, R.id.txtMail, R.id.txtdail})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnDownload:
@@ -117,7 +120,7 @@ public class ContactUsActivity extends AppCompatActivity {
             case R.id.txtmailAmerica:
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{txtmailAmerica.getText().toString()});
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{txtmailAmerica.getText().toString()});
 
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
@@ -134,7 +137,7 @@ public class ContactUsActivity extends AppCompatActivity {
             case R.id.txtMailasia:
                 Intent i1 = new Intent(Intent.ACTION_SEND);
                 i1.setType("message/rfc822");
-                i1.putExtra(Intent.EXTRA_EMAIL  , new String[]{txtMailasia.getText().toString()});
+                i1.putExtra(Intent.EXTRA_EMAIL, new String[]{txtMailasia.getText().toString()});
 
                 try {
                     startActivity(Intent.createChooser(i1, "Send mail..."));
@@ -148,10 +151,27 @@ public class ContactUsActivity extends AppCompatActivity {
                 intent1.setData(Uri.parse(temp1));
                 startActivity(intent1);
                 break;
+            case R.id.txtMail:
+                Intent i4 = new Intent(Intent.ACTION_SEND);
+                i4.setType("message/rfc822");
+                i4.putExtra(Intent.EXTRA_EMAIL, new String[]{txtMail.getText().toString()});
+
+                try {
+                    startActivity(Intent.createChooser(i4, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(ContactUsActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.txtdail:
+                Intent intent4 = new Intent(Intent.ACTION_DIAL);
+                String temp5 = "tel:" + txtdail.getText().toString();
+                intent4.setData(Uri.parse(temp5));
+                startActivity(intent4);
+                break;
+
 
         }
     }
-
 
 
     public void downloadBrochure() {
@@ -183,7 +203,7 @@ public class ContactUsActivity extends AppCompatActivity {
                         editEmail.setText("");
                         editPhone.setText("");
                         editQuires.setText("");
-                    }else {
+                    } else {
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(ContactUsActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                     }
